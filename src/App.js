@@ -10,13 +10,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
+        <h1 class="text-3xl font-bold underline">리액트 </h1>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/new" element={<New />} />
           <Route path="/edit" element={<Edit />} />
           <Route path="/diary/:id" element={<Diary />} />
         </Routes>
-        <h2>리액트 </h2>
         <RouteTest />
       </div>
     </BrowserRouter>
