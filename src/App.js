@@ -10,7 +10,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1 class="text-3xl font-bold underline">리액트 </h1>
+        <h1 className="text-3xl font-bold underline">리액트 </h1>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/new" element={<New />} />
