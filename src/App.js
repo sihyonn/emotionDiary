@@ -6,12 +6,21 @@ import Edit from "./pages/Edit";
 import Diary from "./pages/Diary";
 
 import Button from "./components/Button";
+import Header from "./components/Header";
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1 className="text-3xl font-bold underline">리액트 </h1>
+        <Header
+          headText={"App"}
+          left={<Button text={"왼쪽버튼"} onClick={() => alert("왼쪽눌림")} />}
+          right={
+            <Button text={"오른쪽버튼"} onClick={() => alert("오른쪽눌림")} />
+          }
+        />
+
+        <h1 className="text-3xl font-bold">App.js</h1>
         <Button
           text={"버튼"}
           onClick={() => alert("버튼클릭")}
@@ -22,7 +31,6 @@ const App = () => {
           onClick={() => alert("버튼클릭")}
           type={"negative"}
         />
-
         <Button text={"버튼"} onClick={() => alert("버튼클릭")} />
         <Routes>
           <Route path="/" element={<Home />} />
