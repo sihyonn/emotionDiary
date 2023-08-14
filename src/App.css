@@ -31,3 +31,18 @@ body {
   min-height: 100vh;
   padding: 0 20px;
 }
+
+.btn-positive-color {
+  background-color: #64c964;
+  color: white;
+}
+
+.btn-negative-color {
+  background-color: #fd565f;
+  color: white;
+}
+
+.btn-default-color {
+  background-color: #ececec;
+  color: black;
+}
