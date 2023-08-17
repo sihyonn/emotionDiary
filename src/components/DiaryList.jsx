@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import DiaryItem from "./DiaryItem";
 
 const sortOptionList = [
   { value: "latest", name: "최신순" },
@@ -15,7 +16,11 @@ const filterOptionList = [
 
 const ControlMenu = ({ value, onChange, optionList }) => {
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value)}>
+    <select
+      className="bg-default-color rounded-5 mr-2.5 py-2.5 px-5"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    >
       {optionList.map((it, idx) => (
         <option key={idx} value={it.value}>
           {it.name}
@@ -65,28 +70,32 @@ const DiaryList = ({ diaryList }) => {
 
   return (
     <div>
-      <ControlMenu
-        value={sortType}
-        onChange={setSortType}
-        optionList={sortOptionList}
-      />
-      <ControlMenu
-        value={filter}
-        onChange={setFilter}
-        optionList={filterOptionList}
-      />
-      <Button
-        type={"positive"}
-        text={"new 일기작성"}
-        onClick={() => {
-          navigate("/new");
-        }}
-      />
-      {getProcessedDiaryList().map((it) => (
-        <div key={it.id}>
-          {it.content}
-          {it.emotion}
+      <div className="flex justify-between my-3">
+        <div className="flex text-lg">
+          <ControlMenu
+            value={sortType}
+            onChange={setSortType}
+            optionList={sortOptionList}
+          />
+          <ControlMenu
+            value={filter}
+            onChange={setFilter}
+            optionList={filterOptionList}
+          />
         </div>
+        <div className="flex-grow">
+          <Button
+            type={"positive"}
+            text={"new 일기작성"}
+            onClick={() => {
+              navigate("/new");
+            }}
+          />
+        </div>
+      </div>
+
+      {getProcessedDiaryList().map((it) => (
+        <DiaryItem key={it.id} {...it} />
       ))}
     </div>
   );
