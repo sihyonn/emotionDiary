@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const sortOptionList = [
   { value: "latest", name: "최신순" },
@@ -27,6 +29,7 @@ const DiaryList = ({ diaryList }) => {
   // 정렬기준 상태 관리
   const [sortType, setSortType] = useState("latest");
   const [filter, setFilter] = useState("all");
+  const navigate = useNavigate();
 
   // 정렬순에 맞춰 데이터 변경해서 반환해주는 함수
   const getProcessedDiaryList = () => {
@@ -71,6 +74,13 @@ const DiaryList = ({ diaryList }) => {
         value={filter}
         onChange={setFilter}
         optionList={filterOptionList}
+      />
+      <Button
+        type={"positive"}
+        text={"new 일기작성"}
+        onClick={() => {
+          navigate("/new");
+        }}
       />
       {getProcessedDiaryList().map((it) => (
         <div key={it.id}>

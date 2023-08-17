@@ -56,27 +56,6 @@ const Home = () => {
         left={<Button text={"<"} onClick={decreaseMonth} />}
         right={<Button text={">"} onClick={increaseMonth} />}
       />
-
-      {/* <div>
-        <select>
-          <option value="최신순">최신순</option>
-          <option value="오래된순">오래된순</option>
-        </select>
-        <select>
-          <option value="all">전부다</option>
-          <option value="happy">좋은 감정만</option>
-          <option value="unhappy">안좋은 감정만</option>
-        </select>
-        <Button
-          text={"새 일기작성"}
-          type={"positive"}
-          onClick={() => {
-            alert("일기 작성시작");
-          }}
-        />
-      </div> */}
-
-      {/* 일기리스트자리 */}
       <DiaryList diaryList={data} />
     </div>
   );
