@@ -13,7 +13,7 @@ const Edit = () => {
     <div>
       <h2>이곳은 일기 수정 페이지~</h2>
       <button onClick={() => setSearchParams({ who: "winter" })}>QS</button>
-      <button onClick={() => navigate("/home")}>Home으로 바로가기</button>
+      <button onClick={() => navigate("/")}>Home으로 바로가기</button>
       <button onClick={() => navigate(-1)}>뒤로가기</button>
     </div>
   );
