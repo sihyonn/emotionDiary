@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import Header from "../components/Header";
+import Button from "../components/Button";
 
 const Home = () => {
+  const [curDate, setCurDate] = useState(new Date());
+
+  const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
+
+  const increaseMonth = () => {
+    setCurDate(
+      new Date(curDate.getFullYear(), curDate.getMonth() + 1, curDate.getDate())
+    );
+  };
+
+  const decreaseMonth = () => {
+    setCurDate(
+      new Date(curDate.getFullYear(), curDate.getMonth() - 1, curDate.getDate())
+    );
+  };
   return (
-    <>
-      <h2>Home</h2>
-      <div>이곳은 Home입니다만</div>
-    </>
+    <div>
+      <Header
+        headText={headText}
+        left={<Button text={"<"} onClick={decreaseMonth} />}
+        right={<Button text={">"} onClick={increaseMonth} />}
+      />
+    </div>
   );
 };
 export default Home;

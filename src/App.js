@@ -34,7 +34,7 @@ const reducer = (state, action) => {
   return newState;
 };
 
-// data, dispatcch 공급 context
+// state, dispatcch context 세팅
 export const DiaryStateContext = createContext();
 export const DiaryDispatchContext = createContext();
 
