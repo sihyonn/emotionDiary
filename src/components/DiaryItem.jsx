@@ -22,21 +22,21 @@ const DiaryItem = ({ id, emotion, content, date }) => {
   };
 
   return (
-    <div className="py-3 border-b border-default-color flex justify-between">
+    <div className="flex justify-between py-3 border-b border-default-color">
       <div
         className={`cursor-pointer min-w-120 h-80 rounded-5 flex justify-center ${bgClass}`}
         onClick={goDetail}
       >
         <img
-          className=" w-1/2"
+          className="w-1/2 "
           src={process.env.PUBLIC_URL + `assets/emotion${emotion}.png`}
-          alt=""
+          alt="감정이미지"
         />
       </div>
 
-      <div className=" cursor-pointer flex-grow ml-4 " onClick={goDetail}>
-        <div className=" font-bold text-xl mb-1">{strDate}</div>
-        <div className=" text-l min-w-70 ">{content}</div>
+      <div className="flex-grow ml-4 cursor-pointer " onClick={goDetail}>
+        <div className="mb-1 text-xl font-bold ">{strDate}</div>
+        <div className=" text-l min-w-70">{content}</div>
       </div>
 
       <div>
