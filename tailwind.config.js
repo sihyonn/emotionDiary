@@ -7,6 +7,7 @@ module.exports = {
         120: "120px",
         70: "70px",
       },
+
       width: {
         10: "10px",
         20: "20px",
@@ -14,6 +15,10 @@ module.exports = {
 
         "50%": "50%",
         "100%": "100%",
+      },
+
+      minHeight: {
+        200: "200px",
       },
 
       height: {
@@ -42,6 +47,7 @@ module.exports = {
         s: "14px",
         m: "16px",
         l: "18px",
+        ml: "20px",
         xl: "24px",
         "2xl": "28px",
       },

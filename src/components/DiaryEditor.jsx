@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Header from "./Header";
 import Button from "./Button";
 import EmotionItem from "./EmotionItem";
 
+// 날짜 형식 변환 yyyy-mm-dd
 const getStringDate = (date) => {
   let year = date.getFullYear();
   let month = date.getMonth() + 1;
@@ -48,8 +49,11 @@ const emotionList = [
 
 const DiaryEditor = () => {
   const navigate = useNavigate();
+  const contentRef = useRef();
+
   const [date, setDate] = useState(getStringDate(new Date()));
   const [emotion, setEmotion] = useState(3);
+  const [content, setContent] = useState("");
 
   const handleClickEmote = (emotion) => {
     setEmotion(emotion);
@@ -69,8 +73,9 @@ const DiaryEditor = () => {
         }
       />
       <div>
+        {/* 날짜 선택 */}
         <section className="mb-40 ">
-          <h4 className="mt-10 text-xl font-bold">오늘은 언제인가요?</h4>
+          <h4 className="my-10 text-xl font-bold">오늘은 언제인가요?</h4>
           <div>
             <input
               className=" rounded-5 bg-default-color px-3 py-2.5 mt-1 cursor-pointer text-l"
@@ -80,8 +85,10 @@ const DiaryEditor = () => {
             />
           </div>
         </section>
-        <section>
-          <h4>오늘의 감정</h4>
+
+        {/* 감정 선택 */}
+        <section className="mb-40 ">
+          <h4 className="my-10 text-xl font-bold">오늘의 감정</h4>
           <div className="grid grid-cols-5 gap-2.5 ">
             {emotionList.map((it) => (
               <EmotionItem
@@ -91,6 +98,20 @@ const DiaryEditor = () => {
                 isSelected={it.emotion_id === emotion} // 현재 이모션과 선택된 이모션이 같다면 selected: true 가짐
               />
             ))}
+          </div>
+        </section>
+
+        {/* 일기 작성 칸 */}
+        <section>
+          <h4 className="my-10 text-xl font-bold">오늘의 일기</h4>
+          <div>
+            <textarea
+              className="border-2 text-ml rounded-5 w-100% min-h-200 bg-default-color p-2.5"
+              ref={contentRef}
+              value={content}
+              placeholder="오늘의 나는..."
+              onChange={(e) => setContent(e.target.value)}
+            />
           </div>
         </section>
       </div>
