@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { DiaryDispatchContext } from "../App";
 
 import Header from "./Header";
 import Button from "./Button";
@@ -55,8 +56,21 @@ const DiaryEditor = () => {
   const [emotion, setEmotion] = useState(3);
   const [content, setContent] = useState("");
 
+  const { onCreate } = useContext(DiaryDispatchContext);
+
   const handleClickEmote = (emotion) => {
     setEmotion(emotion);
+  };
+
+  // 작성완료버튼 눌렀을때 일기 내용 생성
+  const handleSubmit = () => {
+    // 아무것도 안썼으면 포커스 리턴, 적절히 작성했으면 onCreate 함수 발생시켜서 생성
+    if (content.length < 1) {
+      contentRef.current.focus();
+      return;
+    }
+    onCreate(date, content, emotion);
+    navigate("/", { replace: true }); // 옵션을주면 뒤로가지않고(뒤로 간 홈이아닌) 진짜 홈페이지로 이동
   };
 
   return (
@@ -102,7 +116,7 @@ const DiaryEditor = () => {
         </section>
 
         {/* 일기 작성 칸 */}
-        <section>
+        <section className="mb-20">
           <h4 className="my-10 text-xl font-bold">오늘의 일기</h4>
           <div>
             <textarea
@@ -111,6 +125,20 @@ const DiaryEditor = () => {
               value={content}
               placeholder="오늘의 나는..."
               onChange={(e) => setContent(e.target.value)}
+            />
+          </div>
+        </section>
+
+        {/* 취소, 작성완료 버튼 */}
+        <section className="flex justify-between mb-20">
+          <div>
+            <Button text={"취소"} onClick={() => navigate(-1)} />
+          </div>
+          <div>
+            <Button
+              text={"작성완료"}
+              onClick={handleSubmit}
+              type={"positive"}
             />
           </div>
         </section>
