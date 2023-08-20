@@ -21,6 +21,7 @@ const Edit = () => {
       if (targetDiary) {
         setOriginData(targetDiary);
       } else {
+        alert("일기가 존재하지 않습니다!🥲");
         navigate("/", { replace: true });
       }
     }
