@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import clsx from "clsx";
+import React from "react";
 
 const DiaryItem = ({ id, emotion, content, date }) => {
   // emotion 값에 따라 배경색 클래스 이름 결정
@@ -51,4 +52,4 @@ const DiaryItem = ({ id, emotion, content, date }) => {
   );
 };
 
-export default DiaryItem;
+export default React.memo(DiaryItem);
