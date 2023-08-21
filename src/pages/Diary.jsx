@@ -74,7 +74,7 @@ const Diary = () => {
 
         {/* 여기서부터 콘텐츠라고 알려주는 시맨틱태그 article */}
         <article>
-          <section className=" w-100% mb-100 flex flex-col items-center text-center">
+          <section className="w-100% mb-80 flex flex-col items-center text-center">
             <h4 className="my-20 font-bold text-ml">오늘의 감정</h4>
             <div
               className={`${emotionClass} text-white flex flex-col items-center justify-around bg-default-color w-250 h-250 rounded-5`}
@@ -84,6 +84,15 @@ const Diary = () => {
                 alt={`${curEmotionData.emotion_desc} 이미지`}
               />
               <div className="text-xl">{curEmotionData.emotion_desc}</div>
+            </div>
+          </section>
+
+          <section className="w-100% mb-100 flex flex-col items-center text-center">
+            <h4 className="my-20 font-bold text-ml w-100%">오늘의 일기</h4>
+            <div className="w-100% p-5 bg-default-color text-left rounded-5 whitespace-keep-all whitespace-normal overflow-wrap-break-word">
+              <p className="font-normal leading-6 text-m font-YeonSung">
+                {data.content}
+              </p>
             </div>
           </section>
         </article>

@@ -34,6 +34,7 @@ module.exports = {
         40: "40px",
         50: "50px",
         60: "60px",
+        80: "80px",
         100: "100px",
       },
       // padding: {
@@ -54,7 +55,9 @@ module.exports = {
         xl: "24px",
         "2xl": "28px",
       },
-
+      fontFamily: {
+        YeonSung: "Yeon Sung",
+      },
       colors: {
         // button 색상
         "positive-color": "#64c964",
