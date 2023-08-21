@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DiaryStateContext } from "../App";
+import clsx from "clsx";
 
 import Header from "../components/Header";
 import Button from "../components/Button";
@@ -33,11 +34,21 @@ const Diary = () => {
   }, [id, diaryList]);
 
   if (!data) {
+    // 데이터가 없을때
     return <div>로딩중입니다...</div>;
   } else {
+    // 데이터가 있을때
     const curEmotionData = emotionList.find(
       (it) => parseInt(it.emotion_id) === parseInt(data.emotion)
     );
+
+    const emotionClass = clsx({
+      "bg-emotion1": curEmotionData.emotion_id === 1,
+      "bg-emotion2": curEmotionData.emotion_id === 2,
+      "bg-emotion3": curEmotionData.emotion_id === 3,
+      "bg-emotion4": curEmotionData.emotion_id === 4,
+      "bg-emotion5": curEmotionData.emotion_id === 5,
+    });
 
     return (
       <div>
@@ -63,14 +74,16 @@ const Diary = () => {
 
         {/* 여기서부터 콘텐츠라고 알려주는 시맨틱태그 article */}
         <article>
-          <section>
-            <h4>오늘의 감정</h4>
-            <div>
+          <section className=" w-100% mb-100 flex flex-col items-center text-center">
+            <h4 className="my-20 font-bold text-ml">오늘의 감정</h4>
+            <div
+              className={`${emotionClass} text-white flex flex-col items-center justify-around bg-default-color w-250 h-250 rounded-5`}
+            >
               <img
                 src={curEmotionData.emotion_img}
                 alt={`${curEmotionData.emotion_desc} 이미지`}
               />
-              <div>{curEmotionData.emotion_desc}</div>
+              <div className="text-xl">{curEmotionData.emotion_desc}</div>
             </div>
           </section>
         </article>
