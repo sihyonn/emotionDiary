@@ -1,4 +1,5 @@
 import { clsx } from "clsx";
+import React from "react";
 
 const EmotionItem = ({
   emotion_id,
@@ -38,4 +39,4 @@ className={[
 이렇게 해서 각각 EmotionItme_on_1은 뭐 2는 뭐 스타일링 해줘야하는거임!
 */
 
-export default EmotionItem;
+export default React.memo(EmotionItem);
