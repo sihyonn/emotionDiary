@@ -13,6 +13,12 @@ const Home = () => {
   const [curDate, setCurDate] = useState(new Date());
   const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
 
+  useEffect(() => {
+    const titleEl = document.getElementsByTagName("title")[0];
+    // title안에 들어가는 글자를 innerHTML로
+    titleEl.innerHTML = `감정 일기장`;
+  }, []);
+
   // 년, 월의 첫날과 마지막날 사이에 해당하는 일기리스트 데이터 보여줘야하니까
   // useEffect 사용해서 다이어리리스트가 수정, 삭제된다거나 년월이 바뀌면 데이터 해당되는것만 보여주게 리렌더
   useEffect(() => {
