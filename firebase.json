@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "sihyonn98-react-project(emotion diary)",
+    "site": "sihyonn98-react-project",
     "public": "build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [

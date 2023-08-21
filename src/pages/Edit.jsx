@@ -13,7 +13,7 @@ const Edit = () => {
   useEffect(() => {
     const titleEl = document.getElementsByTagName("title")[0];
     // title안에 들어가는 글자를 innerHTML로
-    titleEl.innerHTML = `감정 일기장 - ${id}번 일기편집`;
+    titleEl.innerHTML = `감정 일기장 - ${id}번 일기(편집)`;
   }, []);
 
   useEffect(() => {
