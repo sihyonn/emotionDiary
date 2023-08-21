@@ -9,7 +9,7 @@
 
 
 ### 개발기간 및 링크
-2023.08.13 ~ 2023.08.21
+2023.08.13 ~ 2023.08.21 <br/>
 감정일기장 바로가기 👉🏻 [Click!]<br/>
 <br/>
 <img src="https://github.com/sihyonn/emotionDiary/assets/124874266/32a42bfc-b33b-475c-a41b-ceabc214e969.gif" width="450px" height="450px">
