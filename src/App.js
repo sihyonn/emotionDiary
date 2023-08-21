@@ -43,6 +43,22 @@ const App = () => {
   const [data, dispatch] = useReducer(reducer, []);
   const dataId = useRef(1);
 
+  // 로컬스토리지에서 데이터 가져와서 App컴포넌트가 가지는 data의 초깃값 설정해주면 끝
+  useEffect(() => {
+    const localData = localStorage.getItem("diary");
+    // 일기가 하나라도 있다면
+    if (localData) {
+      // diary는 배열이니까 꺼내올때 parse로 다시 배열로가져와주고, 정렬해서 id 내림차순으로 일기 정렬
+      const diaryList = JSON.parse(localData).sort(
+        (a, b) => parseInt(b.id) - parseInt(a.id)
+      );
+      dataId.current = parseInt(diaryList[0].id + 1);
+
+      // 삭제후에 로컬에 남은 데이터를 초깃값으로  설정 액션 발생시키기
+      dispatch({ type: "INIT", data: diaryList });
+    }
+  }, []);
+
   // CREATE
   const onCreate = (date, content, emotion) => {
     dispatch({
