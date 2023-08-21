@@ -11,6 +11,12 @@ const Edit = () => {
   const diaryList = useContext(DiaryStateContext);
 
   useEffect(() => {
+    const titleEl = document.getElementsByTagName("title")[0];
+    // title안에 들어가는 글자를 innerHTML로
+    titleEl.innerHTML = `감정 일기장 - ${id}번 일기편집`;
+  }, []);
+
+  useEffect(() => {
     if (diaryList.length >= 1) {
       // parseInt 혹시 모를 버그대비
       const targetDiary = diaryList.find(

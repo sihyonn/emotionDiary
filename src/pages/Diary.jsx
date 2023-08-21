@@ -15,6 +15,13 @@ const Diary = () => {
   const navigate = useNavigate();
   const [data, setData] = useState();
 
+  // index.html에서 title = 감정일기장을 가져오게해서
+  useEffect(() => {
+    const titleEl = document.getElementsByTagName("title")[0];
+    // title안에 들어가는 글자를 innerHTML로
+    titleEl.innerHTML = `감정 일기장 - ${id}번 일기`;
+  }, []);
+
   // id일치하는 데이터 가져와 상태 저장하기
   useEffect(() => {
     if (diaryList.length >= 1) {
